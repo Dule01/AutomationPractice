@@ -18,5 +18,4 @@ public class AutomationPracticeTest extends BaseTest {
     public void tearDown(){
         quitBrowser();
     }
-
 }
