@@ -3,14 +3,16 @@ package tests;
 import io.qameta.allure.Description;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pages.BasePage;
 
 public class AutomationPracticeTest extends BaseTest {
 
     @BeforeMethod
-    public void setUp(){
-        init("CHROME", 15);
+    @Parameters({"browser"})
+    public void setUp(String browser){
+        init(browser, 15);
     }
 
     @Test(description = "Verify functionality of the 'Contact Us' button")
