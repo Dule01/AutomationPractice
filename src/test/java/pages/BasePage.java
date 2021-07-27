@@ -62,6 +62,16 @@ public class BasePage extends CommonActions{
         Assert.assertEquals(successText, "Newsletter : You have successfully subscribed to this newsletter.");
     }
 
+    @FindBy(css = ".alert.alert-danger")
+    WebElement invalidNewsletterSignUp;
+
+    public void enterInvalidNewsletterEmail(String email){
+        typeText(newsletterInput, email);
+        newsletterInput.sendKeys(Keys.ENTER);
+        String errorText = invalidNewsletterSignUp.getText();
+        Assert.assertEquals(errorText, "Newsletter : Invalid email address.");
+    }
+
     @FindBy(css = "#social_block .facebook")
     WebElement facebookBtn;
 
@@ -87,6 +97,18 @@ public class BasePage extends CommonActions{
     public void verifyEmail(){
         clickElement(emailLink);
     }
+
+    @FindBy(css = ".alert.alert-danger")
+    WebElement sameEmailError;
+
+    public void identicalEmail(String email){
+        typeText(newsletterInput, email);
+        newsletterInput.sendKeys(Keys.ENTER);
+        String errorText = sameEmailError.getText();
+        Assert.assertEquals(errorText, "Newsletter : This email address is already registered.");
+    }
+
+
 
 
 
