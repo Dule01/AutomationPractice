@@ -53,6 +53,22 @@ public class AutomationPracticeTest extends BaseTest {
         bp.enterNewsletterEmail("testemail"+System.currentTimeMillis()+"@email.com");
     }
 
+    @Test(description = "Verify social media buttons")
+    @Description("All of the social media buttons properly function")
+    public void socialButtons(){
+        driver.get("http://automationpractice.com/index.php");
+        BasePage bp = new BasePage(driver);
+        bp.checkSocialButtons();
+    }
+
+    @Test(description = "Verify email link")
+    @Description("Footer email link is functional")
+    public void emailLink(){
+        driver.get("http://automationpractice.com/index.php");
+        BasePage bp = new BasePage(driver);
+        bp.verifyEmail();
+    }
+
     @AfterMethod
     public void tearDown(){
         quitBrowser();

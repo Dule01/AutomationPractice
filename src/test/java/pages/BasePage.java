@@ -55,14 +55,50 @@ public class BasePage extends CommonActions{
     @FindBy(css = ".alert.alert-success")
     WebElement validNewsletterSignUp;
 
-
-
     public void enterNewsletterEmail(String email){
         typeText(newsletterInput, email);
         newsletterInput.sendKeys(Keys.ENTER);
         String successText = validNewsletterSignUp.getText();
         Assert.assertEquals(successText, "Newsletter : You have successfully subscribed to this newsletter.");
     }
+
+    @FindBy(css = "#social_block .facebook")
+    WebElement facebookBtn;
+
+    @FindBy(css = "#social_block .twitter")
+    WebElement twitterBtn;
+
+    @FindBy(css = "#social_block .youtube")
+    WebElement youtubeBtn;
+
+    @FindBy(css = "#social_block .google-plus")
+    WebElement googlePlusBtn;
+
+    public void checkSocialButtons(){
+        clickElement(facebookBtn);
+        clickElement(twitterBtn);
+        clickElement(youtubeBtn);
+        clickElement(googlePlusBtn);
+    }
+
+    @FindBy(xpath = "//*[@class=\"toggle-footer\"]//a[contains(text(), \"support@seleniumframework.com\")]")
+    WebElement emailLink;
+
+    public void verifyEmail(){
+        clickElement(emailLink);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
