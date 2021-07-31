@@ -6,6 +6,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pages.BasePage;
+import pages.SignInPage;
 
 public class AutomationPracticeTest extends BaseTest {
 
@@ -85,6 +86,17 @@ public class AutomationPracticeTest extends BaseTest {
         driver.get("http://automationpractice.com/index.php");
         BasePage bp = new BasePage(driver);
         bp.identicalEmail("email1@email.com");
+    }
+
+    @Test(description = "Verify sign in option")
+    @Description("The sign in option is functional with proper credentials and leads to the My Account page")
+    public void signIn(){
+        driver.get("http://automationpractice.com/index.php");
+        BasePage bp = new BasePage(driver);
+        bp.verifySignInBtn();
+
+        SignInPage sp = new SignInPage(driver);
+        sp.signInSuccessfully("testemail@email.com", "password");
     }
 
     @AfterMethod
