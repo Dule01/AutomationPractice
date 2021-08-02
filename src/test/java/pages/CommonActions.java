@@ -43,4 +43,9 @@ public class CommonActions {
         select.selectByIndex(i);
     }
 
+    public void selectByValue(WebElement element, String value){
+        Select select = new Select(element);
+        select.selectByValue(value);
+    }
+
 }
