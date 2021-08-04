@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
-    WebDriver driver;
+    public WebDriver driver;
     DriverManager driverManager;
 
     public void init(String browser, int waitTime){
